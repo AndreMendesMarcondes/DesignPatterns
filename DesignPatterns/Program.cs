@@ -1,5 +1,6 @@
 ﻿using ChainOfResponsibility;
 using ChainOfResponsibility.Chain;
+using AbstractFactory;
 using Strategy;
 using Strategy.Strategy;
 using System;
@@ -10,8 +11,16 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-
+            RunAbstractFactory();
         }
+
+        #region AbstractFactory
+        static void RunAbstractFactory()
+        {
+            new AbstractFactory.Client().Main();
+        }
+
+        #endregion
 
         #region [ Chain ]
         static void RunChain()
@@ -23,11 +32,11 @@ namespace DesignPatterns
             monkey.SetNext(squirrel).SetNext(dog);
 
             Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
-            Client.ClientCode(monkey);
+            ChainOfResponsibility.Client.ClientCode(monkey);
             Console.WriteLine();
 
             Console.WriteLine("Subchain: Squirrel > Dog\n");
-            Client.ClientCode(squirrel);
+            ChainOfResponsibility.Client.ClientCode(squirrel);
         }
         #endregion
 
